@@ -1,11 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>KuLan Blog</title>
-        <link>https://kulandev.github.io/</link>
-        <description>KuLan Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Jun 2020 16:23:31 &#43;0800</lastBuildDate>
-            <atom:link href="https://kulandev.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+        <title>開發相關 - Category - KuLan Blog</title>
+        <link>https://kulandev.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/</link>
+        <description>開發相關 - Category - KuLan Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Jun 2020 16:23:31 &#43;0800</lastBuildDate><atom:link href="https://kulandev.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/" rel="self" type="application/rss+xml" /><item>
     <title>建立 flutter 開發環境</title>
     <link>https://kulandev.github.io/posts/2020/06/test/</link>
     <pubDate>Tue, 09 Jun 2020 16:23:31 &#43;0800</pubDate>
