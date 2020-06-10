@@ -3,7 +3,14 @@
         <title>開發相關 - Category - KuLan Blog</title>
         <link>https://kulandev.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/</link>
         <description>開發相關 - Category - KuLan Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Jun 2020 16:21:31 &#43;0800</lastBuildDate><atom:link href="https://kulandev.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</lastBuildDate><atom:link href="https://kulandev.github.io/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>如何將 flutter 執行在模擬器與實機上</title>
+    <link>https://kulandev.github.io/posts/2020/06/%E5%A6%82%E4%BD%95%E5%B0%87flutter%E5%9F%B7%E8%A1%8C%E5%9C%A8%E6%A8%A1%E6%93%AC%E5%99%A8%E8%88%87%E5%AF%A6%E6%A9%9F%E4%B8%8A/</link>
+    <pubDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://kulandev.github.io/posts/2020/06/%E5%A6%82%E4%BD%95%E5%B0%87flutter%E5%9F%B7%E8%A1%8C%E5%9C%A8%E6%A8%A1%E6%93%AC%E5%99%A8%E8%88%87%E5%AF%A6%E6%A9%9F%E4%B8%8A/</guid>
+    <description><![CDATA[上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上。 以下操作均以 VS Code 作為開發工具 Step 1. 建立 flutter 專]]></description>
+</item><item>
     <title>建立 flutter 開發環境</title>
     <link>https://kulandev.github.io/posts/2020/06/%E5%BB%BA%E7%AB%8Bflutter%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83/</link>
     <pubDate>Tue, 09 Jun 2020 16:21:31 &#43;0800</pubDate>
