@@ -6,14 +6,14 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>如何將 flutter 執行在模擬器與實機上 - KuLan Blog</title><meta name="Description" content=""><meta property="og:title" content="如何將 flutter 執行在模擬器與實機上" />
-<meta property="og:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上。 以下操作均以 VS Code 作為開發工具 Step 1. 建立 flutter 專" />
+<meta property="og:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上 以下操作均以 Mac 操作、VS Code 作為開發工具為主" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kulandev.github.io/posts/2020/06/%E5%A6%82%E4%BD%95%E5%B0%87flutter%E5%9F%B7%E8%A1%8C%E5%9C%A8%E6%A8%A1%E6%93%AC%E5%99%A8%E8%88%87%E5%AF%A6%E6%A9%9F%E4%B8%8A/" />
 <meta property="article:published_time" content="2020-06-10T16:03:43+08:00" />
 <meta property="article:modified_time" content="2020-06-10T16:03:43+08:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="如何將 flutter 執行在模擬器與實機上"/>
-<meta name="twitter:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上。 以下操作均以 VS Code 作為開發工具 Step 1. 建立 flutter 專"/>
+<meta name="twitter:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上 以下操作均以 Mac 操作、VS Code 作為開發工具為主"/>
 <meta name="application-name" content="KuLan Blog">
 <meta name="apple-mobile-web-app-title" content="KuLan Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/kulandev.github.io\/posts\/2020\/06\/%E5%A6%82%E4%BD%95%E5%B0%87flutter%E5%9F%B7%E8%A1%8C%E5%9C%A8%E6%A8%A1%E6%93%AC%E5%99%A8%E8%88%87%E5%AF%A6%E6%A9%9F%E4%B8%8A\/"
-        },"genre": "posts","keywords": "flutter","wordcount":  1641 ,
+        },"genre": "posts","keywords": "flutter","wordcount":  1647 ,
         "url": "https:\/\/kulandev.github.io\/posts\/2020\/06\/%E5%A6%82%E4%BD%95%E5%B0%87flutter%E5%9F%B7%E8%A1%8C%E5%9C%A8%E6%A8%A1%E6%93%AC%E5%99%A8%E8%88%87%E5%AF%A6%E6%A9%9F%E4%B8%8A\/","datePublished": "2020-06-10T16:03:43+08:00","dateModified": "2020-06-10T16:03:43+08:00","publisher": {
             "@type": "Organization",
             "name": "KuLan"},"author": {
@@ -76,7 +76,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">如何將 flutter 執行在模擬器與實機上</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>KuLan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/"><i class="far fa-folder fa-fw"></i>開發相關</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-10">2020-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1641 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-10">2020-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1647 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -93,9 +93,9 @@
     <li><a href="#setp-6-參考資料">Setp 6. 參考資料</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>上一篇文章介紹如何 <a href="../%e5%bb%ba%e7%ab%8bflutter%e9%96%8b%e7%99%bc%e7%92%b0%e5%a2%83/" rel="">建立 flutter 開發環境</a>，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上。</p>
+            </div><div class="content" id="content"><p>上一篇文章介紹如何 <a href="../%e5%bb%ba%e7%ab%8bflutter%e9%96%8b%e7%99%bc%e7%92%b0%e5%a2%83/" rel="">建立 flutter 開發環境</a>，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上</p>
+<p>以下操作均以 Mac 操作、VS Code 作為開發工具為主</p>
 <p> </p>
-<p>以下操作均以 VS Code 作為開發工具</p>
 <h2 id="step-1-建立-flutter-專案">Step 1. 建立 flutter 專案</h2>
 <p>開啟 VS Code 後，使用快速鍵 cmd + shift + p 或左下小角的設定叫出「命令選擇區」</p>
 <p><img
