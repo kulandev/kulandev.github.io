@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>如何將 flutter 執行在模擬器與實機上 - </title><meta name="Description" content=""><meta property="og:title" content="如何將 flutter 執行在模擬器與實機上" />
+<meta property="og:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上 以下操作均以 Mac 操作、VS Code 作為開發工具為主" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kulandev.github.io/b200602/" />
+<meta property="og:image" content="https://kulandev.github.io/b200602/featured-image.jpg"/>
+<meta property="article:published_time" content="2020-06-10T16:03:43+08:00" />
+<meta property="article:modified_time" content="2020-06-10T16:03:43+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kulandev.github.io/b200602/featured-image.jpg"/>
+<meta name="twitter:title" content="如何將 flutter 執行在模擬器與實機上"/>
+<meta name="twitter:description" content="上一篇文章介紹如何 建立 flutter 開發環境，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上 以下操作均以 Mac 操作、VS Code 作為開發工具為主"/>
+<meta name="application-name" content="">
+<meta name="apple-mobile-web-app-title" content=""><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://kulandev.github.io/b200602/" /><link rel="prev" href="https://kulandev.github.io/b200601/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何將 flutter 執行在模擬器與實機上",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/kulandev.github.io\/b200602\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/kulandev.github.io\/b200602\/featured-image.jpg",
+                            "width":  1020 ,
+                            "height":  800 
+                        }],"genre": "posts","keywords": "flutter","wordcount":  1647 ,
+        "url": "https:\/\/kulandev.github.io\/b200602\/","datePublished": "2020-06-10T16:03:43+08:00","dateModified": "2020-06-10T16:03:43+08:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/kulandev.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "KuLan"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">KuLan Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">KuLan Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">如何將 flutter 執行在模擬器與實機上</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>KuLan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E9%96%8B%E7%99%BC%E7%9B%B8%E9%97%9C/"><i class="far fa-folder fa-fw"></i>開發相關</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-10">2020-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1647 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;<span id="/b200602/" class="leancloud_visitors" data-flag-title="如何將 flutter 執行在模擬器與實機上">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/b200602/featured-image.jpg"
+        data-srcset="/b200602/featured-image.jpg, /b200602/featured-image.jpg 1.5x, /b200602/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/b200602/featured-image.jpg"
+        title="/b200602/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-1-建立-flutter-專案">Step 1. 建立 flutter 專案</a></li>
+    <li><a href="#step-2-執行在-ios-模擬器">Step 2. 執行在 iOS 模擬器</a></li>
+    <li><a href="#setp-3-執行在-androd-模擬器">Setp 3. 執行在 Androd 模擬器</a></li>
+    <li><a href="#setp-4-執行在-ios-實機">Setp 4. 執行在 iOS 實機</a></li>
+    <li><a href="#setp-5-執行在-android-實機">Setp 5. 執行在 Android 實機</a></li>
+    <li><a href="#setp-6-參考資料">Setp 6. 參考資料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>上一篇文章介紹如何 <a href="../%e5%bb%ba%e7%ab%8bflutter%e9%96%8b%e7%99%bc%e7%92%b0%e5%a2%83/" rel="">建立 flutter 開發環境</a>，本篇介紹如何將專案執行在 Android、iOS 模擬器與實體機器上</p>
+<p>以下操作均以 Mac 操作、VS Code 作為開發工具為主</p>
+<p> </p>
+<h2 id="step-1-建立-flutter-專案">Step 1. 建立 flutter 專案</h2>
+<p>開啟 VS Code 後，使用快速鍵 cmd + shift + p 或左下小角的設定叫出「命令選擇區」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990912541_f86774faec_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49990912541_f86774faec_o.png, https://live.staticflickr.com/65535/49990912541_f86774faec_o.png 1.5x, https://live.staticflickr.com/65535/49990912541_f86774faec_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990912541_f86774faec_o.png"
+        title="term select" /></p>
+<p> </p>
+<p>輸入 flutter</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg, https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg 1.5x, https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg"
+        title="輸入 flutter" /></p>
+<p>選擇 Flutter: New Project</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg, https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg 1.5x, https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991170552_49c73e2cc6_b.jpg"
+        title="Flutter: New Project" /></p>
+<p>輸入希望的專案名稱</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991170542_c4650f0c7e_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991170542_c4650f0c7e_b.jpg, https://live.staticflickr.com/65535/49991170542_c4650f0c7e_b.jpg 1.5x, https://live.staticflickr.com/65535/49991170542_c4650f0c7e_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991170542_c4650f0c7e_b.jpg"
+        title="專案名稱" /></p>
+<p>選擇儲存專案的位置</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991170532_d9588f7ea7_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991170532_d9588f7ea7_b.jpg, https://live.staticflickr.com/65535/49991170532_d9588f7ea7_b.jpg 1.5x, https://live.staticflickr.com/65535/49991170532_d9588f7ea7_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991170532_d9588f7ea7_b.jpg"
+        title="選擇儲存專案的位置" /></p>
+<p> </p>
+<p>即可建立 flutter 專案</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990404283_4cb6a9abb5_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990404283_4cb6a9abb5_b.jpg, https://live.staticflickr.com/65535/49990404283_4cb6a9abb5_b.jpg 1.5x, https://live.staticflickr.com/65535/49990404283_4cb6a9abb5_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990404283_4cb6a9abb5_b.jpg"
+        title="flutter 專案" /></p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>圖中的 VS Code 為中文介面與專案 icon 不同，是有安裝以下套件</p>
+<ul>
+<li>vscode-icons</li>
+<li>Chinese (Traditional) Language Pack for Visual Studio Code</li>
+</ul>
+</div>
+        </div>
+    </div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990404278_58cfa9276e_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990404278_58cfa9276e_b.jpg, https://live.staticflickr.com/65535/49990404278_58cfa9276e_b.jpg 1.5x, https://live.staticflickr.com/65535/49990404278_58cfa9276e_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990404278_58cfa9276e_b.jpg"
+        title="vscode-icons" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991170517_1a411af8b7_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991170517_1a411af8b7_b.jpg, https://live.staticflickr.com/65535/49991170517_1a411af8b7_b.jpg 1.5x, https://live.staticflickr.com/65535/49991170517_1a411af8b7_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991170517_1a411af8b7_b.jpg"
+        title="Chinese (Traditional) Language Pack for Visual Studio Code" /></p>
+<h2 id="step-2-執行在-ios-模擬器">Step 2. 執行在 iOS 模擬器</h2>
+<p>點選右下角的「No Device」，並選擇「Start iOS Simulator」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990956481_6aa81100dc_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990956481_6aa81100dc_b.jpg, https://live.staticflickr.com/65535/49990956481_6aa81100dc_b.jpg 1.5x, https://live.staticflickr.com/65535/49990956481_6aa81100dc_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990956481_6aa81100dc_b.jpg"
+        title="No Device" /></p>
+<p>即可開啟 iOS 模擬器</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991198672_f61d8cabbc_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991198672_f61d8cabbc_b.jpg, https://live.staticflickr.com/65535/49991198672_f61d8cabbc_b.jpg 1.5x, https://live.staticflickr.com/65535/49991198672_f61d8cabbc_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991198672_f61d8cabbc_b.jpg"
+        title="iOS 模擬器" /></p>
+<p> </p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">若需要其他裝置，例如：iPhone 11、iPhone 11 Pro&hellip;，請在 Dock 中的「Simulator」右鍵選擇「Device -&gt; iOS 13.5 -&gt; 你需要的裝置」</div>
+        </div>
+    </div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990956451_96cdd37bb2_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990956451_96cdd37bb2_b.jpg, https://live.staticflickr.com/65535/49990956451_96cdd37bb2_b.jpg 1.5x, https://live.staticflickr.com/65535/49990956451_96cdd37bb2_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990956451_96cdd37bb2_b.jpg"
+        title="其他iOS 模擬器" /></p>
+<p> </p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>如果你需要 iPhone X 或是 iPhone Xs 裝置的話，其實不需要，因為尺寸與iPhone 11 Pro 是相對應的，詳細可參考下圖。</p>
+<p>如果需要其他 iOS 版本的模擬器，可以至參考資料的「新增 iPhone 模擬器(simulator)」</p>
+</div>
+        </div>
+    </div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990977811_5b044ca746_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990977811_5b044ca746_b.jpg, https://live.staticflickr.com/65535/49990977811_5b044ca746_b.jpg 1.5x, https://live.staticflickr.com/65535/49990977811_5b044ca746_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990977811_5b044ca746_b.jpg"
+        title="iOS解析度對應" /></p>
+<p>圖片來源：<a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions" target="_blank" rel="noopener noreffer">The Ultimate Guide To iPhone Resolutions</a></p>
+<p> </p>
+<p>開啟模擬器後。選擇「執行」，並建立 launch.json 檔案</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991001461_d52b1fd94f_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991001461_d52b1fd94f_b.jpg, https://live.staticflickr.com/65535/49991001461_d52b1fd94f_b.jpg 1.5x, https://live.staticflickr.com/65535/49991001461_d52b1fd94f_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991001461_d52b1fd94f_b.jpg"
+        title="建立 launch.json" /></p>
+<p>建立成功，專案會多一個.vscode 檔案夾與 launch.json 檔案</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991245077_d603beac6f_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991245077_d603beac6f_b.jpg, https://live.staticflickr.com/65535/49991245077_d603beac6f_b.jpg 1.5x, https://live.staticflickr.com/65535/49991245077_d603beac6f_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991245077_d603beac6f_b.jpg"
+        title=".vscode 檔案夾與 launch.json 檔案" /></p>
+<p>回到「執行」，點選左上角綠色箭頭「開始偵錯」，右下角開始進行編譯並將程式跑起來</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991011726_c4d2979db1_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991011726_c4d2979db1_b.jpg, https://live.staticflickr.com/65535/49991011726_c4d2979db1_b.jpg 1.5x, https://live.staticflickr.com/65535/49991011726_c4d2979db1_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991011726_c4d2979db1_b.jpg"
+        title="開始偵錯" /></p>
+<p>編譯完成，將程式寫進模擬器中，完成後會顯示以下的畫面</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991245012_b328989335_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991245012_b328989335_b.jpg, https://live.staticflickr.com/65535/49991245012_b328989335_b.jpg 1.5x, https://live.staticflickr.com/65535/49991245012_b328989335_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991245012_b328989335_b.jpg"
+        title="iOS 編譯完成" /></p>
+<p> </p>
+<h2 id="setp-3-執行在-androd-模擬器">Setp 3. 執行在 Androd 模擬器</h2>
+<p>由於還沒有 Android 模擬器，需要先從 Android Studio 中建立 Android 模擬器</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991301842_2542b1375e_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991301842_2542b1375e_b.jpg, https://live.staticflickr.com/65535/49991301842_2542b1375e_b.jpg 1.5x, https://live.staticflickr.com/65535/49991301842_2542b1375e_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991301842_2542b1375e_b.jpg"
+        title="沒有Android 模擬器" /></p>
+<p>開啟 Android Studio，選擇右下角「Configura -&gt; AVD Manager」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991301827_b258150498_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991301827_b258150498_b.jpg, https://live.staticflickr.com/65535/49991301827_b258150498_b.jpg 1.5x, https://live.staticflickr.com/65535/49991301827_b258150498_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991301827_b258150498_b.jpg"
+        title="設定Android模擬器" /></p>
+<p>選擇「＋ Create Virtual Device&hellip;」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990536158_e1fba54a57_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990536158_e1fba54a57_b.jpg, https://live.staticflickr.com/65535/49990536158_e1fba54a57_b.jpg 1.5x, https://live.staticflickr.com/65535/49990536158_e1fba54a57_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990536158_e1fba54a57_b.jpg"
+        title="Create Virtual Device" /></p>
+<p>這邊選擇你要的模擬器尺寸</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991301757_450216c498_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991301757_450216c498_b.jpg, https://live.staticflickr.com/65535/49991301757_450216c498_b.jpg 1.5x, https://live.staticflickr.com/65535/49991301757_450216c498_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991301757_450216c498_b.jpg"
+        title="Virtual Device size" /></p>
+<p>選擇該模擬器的 Android 版本，請自行下載需要的版本</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990536143_9afc2532cd_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990536143_9afc2532cd_b.jpg, https://live.staticflickr.com/65535/49990536143_9afc2532cd_b.jpg 1.5x, https://live.staticflickr.com/65535/49990536143_9afc2532cd_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990536143_9afc2532cd_b.jpg"
+        title="select android version" /></p>
+<p>命名 AVD 與確認 AVD 相關資訊後，按下右下角「Finish」建立該 AVD</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991058141_9976f7fe49_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991058141_9976f7fe49_b.jpg, https://live.staticflickr.com/65535/49991058141_9976f7fe49_b.jpg 1.5x, https://live.staticflickr.com/65535/49991058141_9976f7fe49_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991058141_9976f7fe49_b.jpg"
+        title="check android simulator" /></p>
+<p>Android Virtual Device Manager 即出現剛建立完成的 AVD</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990536123_192bc8c2c0_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990536123_192bc8c2c0_b.jpg, https://live.staticflickr.com/65535/49990536123_192bc8c2c0_b.jpg 1.5x, https://live.staticflickr.com/65535/49990536123_192bc8c2c0_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990536123_192bc8c2c0_b.jpg"
+        title="check android manager" /></p>
+<p> </p>
+<p>回到 VS Code 中，同樣點選點選右下角的「No Device」，出現了剛剛建立的 AVD</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990536118_def05e2b6f_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990536118_def05e2b6f_b.jpg, https://live.staticflickr.com/65535/49990536118_def05e2b6f_b.jpg 1.5x, https://live.staticflickr.com/65535/49990536118_def05e2b6f_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990536118_def05e2b6f_b.jpg"
+        title="show AVD" /></p>
+<p>選擇後，便開啟 Android 模擬器</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990536088_29495f9b56_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990536088_29495f9b56_b.jpg, https://live.staticflickr.com/65535/49990536088_29495f9b56_b.jpg 1.5x, https://live.staticflickr.com/65535/49990536088_29495f9b56_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990536088_29495f9b56_b.jpg"
+        title="open AVD" /></p>
+<p>同樣回到「執行」，點選左上角綠色箭頭「開始偵錯」，右下角開始進行編譯並將程式跑起來」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990963943_c552ba3718_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990963943_c552ba3718_b.jpg, https://live.staticflickr.com/65535/49990963943_c552ba3718_b.jpg 1.5x, https://live.staticflickr.com/65535/49990963943_c552ba3718_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990963943_c552ba3718_b.jpg"
+        title="開始偵錯" /></p>
+<p>編譯完成，將程式寫進模擬器中，完成後會顯示以下的畫面</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991058081_c807f9383c_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991058081_c807f9383c_b.jpg, https://live.staticflickr.com/65535/49991058081_c807f9383c_b.jpg 1.5x, https://live.staticflickr.com/65535/49991058081_c807f9383c_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991058081_c807f9383c_b.jpg"
+        title="Andriod 編譯完成" /></p>
+<p> </p>
+<h2 id="setp-4-執行在-ios-實機">Setp 4. 執行在 iOS 實機</h2>
+<p>要將程式執行在 iOS 實機上，需要準備以下的東西</p>
+<ul>
+<li><a href="https://developer.apple.com/programs/" target="_blank" rel="noopener noreffer">Apple 開發者帳號</a>(可以先不繳交年費)</li>
+<li>iPhone 一台</li>
+<li>安裝 cocoapods</li>
+<li>安裝 Xcode</li>
+</ul>
+<p> </p>
+<p>打開「終端機」，透過 cd 指令，進入到剛剛建立的 flutter 專案，並在專案底下輸入「open ios/Runner.xcworkspace」，參考如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">cd</span> Dev/App/<span class="o">{</span>you flutter project name<span class="o">}</span>
+open ios/Runner.xcworkspace
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991459227_7cdb79f598_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991459227_7cdb79f598_b.jpg, https://live.staticflickr.com/65535/49991459227_7cdb79f598_b.jpg 1.5x, https://live.staticflickr.com/65535/49991459227_7cdb79f598_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991459227_7cdb79f598_b.jpg"
+        title="open ios/Runner.xcworkspace" /></p>
+<p> </p>
+<p>輸入完畢，自定打開 Xcode，接著左側的導航面板中選擇 Runner 項目，並選擇「Signing &amp; Capabilities &gt; Team(Add Account&hellip;)」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991214391_31acbc1132_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991214391_31acbc1132_b.jpg, https://live.staticflickr.com/65535/49991214391_31acbc1132_b.jpg 1.5x, https://live.staticflickr.com/65535/49991214391_31acbc1132_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991214391_31acbc1132_b.jpg"
+        title="Signing &amp;amp; Capabilities &amp;gt; Team" /></p>
+<p>輸入 Apple 開發者帳號</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991501002_02bacafc00_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991501002_02bacafc00_b.jpg, https://live.staticflickr.com/65535/49991501002_02bacafc00_b.jpg 1.5x, https://live.staticflickr.com/65535/49991501002_02bacafc00_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991501002_02bacafc00_b.jpg"
+        title="輸入 Apple 開發者帳號" /></p>
+<p>確認帳號資訊</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991255866_666217d90b_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991255866_666217d90b_b.jpg, https://live.staticflickr.com/65535/49991255866_666217d90b_b.jpg 1.5x, https://live.staticflickr.com/65535/49991255866_666217d90b_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991255866_666217d90b_b.jpg"
+        title="確認帳號資訊" /></p>
+<p>在 Team 選擇 Apple 開發者帳號與修改「Bundle Identifier」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991352311_8cef2e453b_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49991352311_8cef2e453b_o.png, https://live.staticflickr.com/65535/49991352311_8cef2e453b_o.png 1.5x, https://live.staticflickr.com/65535/49991352311_8cef2e453b_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991352311_8cef2e453b_o.png"
+        title="選擇 Apple 開發者帳號" /></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Bundle Identifier 是每一個 iOS App 的唯一標識，就像一個人的身份證號碼；必須是唯一值，類似 Android 的 Package name</div>
+        </div>
+    </div>
+<p> </p>
+<p>將 iPhone 與電腦連接，手機會出現是否「信任這部電腦？」</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991261721_ec6cc6aa7a_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49991261721_ec6cc6aa7a_o.png, https://live.staticflickr.com/65535/49991261721_ec6cc6aa7a_o.png 1.5x, https://live.staticflickr.com/65535/49991261721_ec6cc6aa7a_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991261721_ec6cc6aa7a_o.png"
+        title="信任這部電腦？" /></p>
+<p>選擇「信任」後，查看 Xcode 中的裝置列表會出現該手機</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990734878_2bcd6a2bd0_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49990734878_2bcd6a2bd0_o.png, https://live.staticflickr.com/65535/49990734878_2bcd6a2bd0_o.png 1.5x, https://live.staticflickr.com/65535/49990734878_2bcd6a2bd0_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990734878_2bcd6a2bd0_o.png"
+        title="裝置列表" /></p>
+<p>回到「終端機」中輸入下列指令，會看到「連線裝置數」與「裝置詳細狀態」</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Bash" data-lang="Bash">flutter doctor
+flutter devices
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991287911_099e41ea16_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991287911_099e41ea16_b.jpg, https://live.staticflickr.com/65535/49991287911_099e41ea16_b.jpg 1.5x, https://live.staticflickr.com/65535/49991287911_099e41ea16_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991287911_099e41ea16_b.jpg"
+        title="check devices" /></p>
+<p>回到 VS Code 會看到，已有連結的手機裝置可以選擇</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990789443_b60cf2c132_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990789443_b60cf2c132_b.jpg, https://live.staticflickr.com/65535/49990789443_b60cf2c132_b.jpg 1.5x, https://live.staticflickr.com/65535/49990789443_b60cf2c132_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990789443_b60cf2c132_b.jpg"
+        title="已有連結的手機裝置可以選擇" /></p>
+<p>選擇手機後，同樣回到「執行」，點選左上角綠色箭頭「開始偵錯」，右下角開始進行編譯並將程式跑起來</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991597217_17ca28ac6d_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991597217_17ca28ac6d_b.jpg, https://live.staticflickr.com/65535/49991597217_17ca28ac6d_b.jpg 1.5x, https://live.staticflickr.com/65535/49991597217_17ca28ac6d_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991597217_17ca28ac6d_b.jpg"
+        title="開始偵錯" /></p>
+<p>編譯完成，將程式寫進實機中。後發現開啟應用程式後出現以下畫面</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990860648_036717b824_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49990860648_036717b824_o.png, https://live.staticflickr.com/65535/49990860648_036717b824_o.png 1.5x, https://live.staticflickr.com/65535/49990860648_036717b824_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990860648_036717b824_o.png"
+        title="iOS實體-1" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991381421_b0d1228dcd_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49991381421_b0d1228dcd_o.png, https://live.staticflickr.com/65535/49991381421_b0d1228dcd_o.png 1.5x, https://live.staticflickr.com/65535/49991381421_b0d1228dcd_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991381421_b0d1228dcd_o.png"
+        title="iOS實體-2" /></p>
+<p>這時候請至手機中的「設定 -&gt; 一般 -&gt; 裝置管理 -&gt; 該APP」信任該 App</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991626062_2f38113d6b_o.png"
+        data-srcset="https://live.staticflickr.com/65535/49991626062_2f38113d6b_o.png, https://live.staticflickr.com/65535/49991626062_2f38113d6b_o.png 1.5x, https://live.staticflickr.com/65535/49991626062_2f38113d6b_o.png 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991626062_2f38113d6b_o.png"
+        title="信任 App" /></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">詳細操作可以參考：<a href="https://support.apple.com/zh-tw/HT204460" target="_blank" rel="noopener noreffer">在 iOS 上安裝自定企業 app</a></div>
+        </div>
+    </div>
+<p> </p>
+<p>信任 App 後，即可進入該 App</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49990875073_c39266a827_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49990875073_c39266a827_b.jpg, https://live.staticflickr.com/65535/49990875073_c39266a827_b.jpg 1.5x, https://live.staticflickr.com/65535/49990875073_c39266a827_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49990875073_c39266a827_b.jpg"
+        title="iOS 實機 App" /></p>
+<h2 id="setp-5-執行在-android-實機">Setp 5. 執行在 Android 實機</h2>
+<p>相較於 iOS，Android 要跑在實機中相對簡單多了，只需要準備下列東西就可以了</p>
+<ul>
+<li>Android 手機一台</li>
+</ul>
+<p> </p>
+<p>將Android 手機與電腦連線後，Android 手機通常會出現以下畫面，選擇「確定」即可</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991441201_e8663b76e3_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991441201_e8663b76e3_b.jpg, https://live.staticflickr.com/65535/49991441201_e8663b76e3_b.jpg 1.5x, https://live.staticflickr.com/65535/49991441201_e8663b76e3_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991441201_e8663b76e3_b.jpg"
+        title="Android 實機-1" /></p>
+<p>打開手機的開發者模式中的「USB 偵錯」，由於 Android 廠牌眾多，就不逐一介紹如何開啟開發者模式，請自行去針對手機廠牌去 google，通常開啟開發者模式的方法都是在「設定頁面」中的「版本號」連按數下即可開啟</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991684867_6629241d74_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991684867_6629241d74_b.jpg, https://live.staticflickr.com/65535/49991684867_6629241d74_b.jpg 1.5x, https://live.staticflickr.com/65535/49991684867_6629241d74_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991684867_6629241d74_b.jpg"
+        title="Android 實機-2" /></p>
+<p>回到 VS Code，會看到已有連結的手機裝置可以選擇</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991684962_2127efc92c_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991684962_2127efc92c_b.jpg, https://live.staticflickr.com/65535/49991684962_2127efc92c_b.jpg 1.5x, https://live.staticflickr.com/65535/49991684962_2127efc92c_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991684962_2127efc92c_b.jpg"
+        title="Android 實機-3" /></p>
+<p>選擇手機後，同樣回到「執行」，點選左上角綠色箭頭「開始偵錯」，右下角開始進行編譯並將程式跑起來</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991441226_1f6fbe4810_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991441226_1f6fbe4810_b.jpg, https://live.staticflickr.com/65535/49991441226_1f6fbe4810_b.jpg 1.5x, https://live.staticflickr.com/65535/49991441226_1f6fbe4810_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991441226_1f6fbe4810_b.jpg"
+        title="Android 實機-4" /></p>
+<p>執行完成，就會自動進入到應用程式的畫面了</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://live.staticflickr.com/65535/49991441146_0a5d793a28_b.jpg"
+        data-srcset="https://live.staticflickr.com/65535/49991441146_0a5d793a28_b.jpg, https://live.staticflickr.com/65535/49991441146_0a5d793a28_b.jpg 1.5x, https://live.staticflickr.com/65535/49991441146_0a5d793a28_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://live.staticflickr.com/65535/49991441146_0a5d793a28_b.jpg"
+        title="Android 實機-5" /></p>
+<h2 id="setp-6-參考資料">Setp 6. 參考資料</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%96%B0%E5%A2%9E-iphone-%E6%A8%A1%E6%93%AC%E5%99%A8-simulator-7f5c65a08f97" target="_blank" rel="noopener noreffer">新增 iPhone 模擬器(simulator)</a></p>
+</li>
+<li>
+<p><a href="https://flutter.dev/docs/get-started/install/macos#deploy-to-ios-devices" target="_blank" rel="noopener noreffer">Deploy to iOS devices</a></p>
+</li>
+<li>
+<p><a href="https://flutter.dev/docs/get-started/install/macos#set-up-your-android-device" target="_blank" rel="noopener noreffer">Set up your Android device</a></p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-10</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/b200602/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://kulandev.github.io/b200602/" data-title="如何將 flutter 執行在模擬器與實機上" data-hashtags="flutter"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://kulandev.github.io/b200602/" data-hashtag="flutter"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://kulandev.github.io/b200602/" data-title="如何將 flutter 執行在模擬器與實機上"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://kulandev.github.io/b200602/" data-title="如何將 flutter 執行在模擬器與實機上"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://kulandev.github.io/b200602/" data-title="如何將 flutter 執行在模擬器與實機上"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/flutter/">flutter</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/b200601/" class="prev" rel="prev" title="建立 flutter 開發環境"><i class="fas fa-angle-left fa-fw"></i>建立 flutter 開發環境</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">KuLan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
