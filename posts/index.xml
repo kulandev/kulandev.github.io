@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - </title>
+        <title>All Posts - KuLan Blog</title>
         <link>https://kulandev.github.io/posts/</link>
-        <description>All Posts | </description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>kulandev@gmail.com (KuLan)</managingEditor>
-            <webMaster>kulandev@gmail.com (KuLan)</webMaster><lastBuildDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</lastBuildDate><atom:link href="https://kulandev.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <description>All Posts | KuLan Blog</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>kulandev@gmail.com (KuLan)</managingEditor>
+            <webMaster>kulandev@gmail.com (KuLan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</lastBuildDate><atom:link href="https://kulandev.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>如何將 flutter 執行在模擬器與實機上</title>
     <link>https://kulandev.github.io/b200602/</link>
     <pubDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</pubDate>
