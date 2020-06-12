@@ -12,32 +12,37 @@
 flutter 目前有支援三個作業系統開發，請依照自身環境去下載
 {{< /admonition >}}
 
-![flutter Install](https://live.staticflickr.com/65535/49987477231_f9bee9aa47_b.jpg)
+![mKjII5e](https://i.imgur.com/mKjII5e.png)
 
 &nbsp;
 
 點擊「flutter_macos_1.17.3-stable.zip」並儲存，我的習慣會在根目錄建立一個名為「Dev」的資料夾
+{{< admonition >}}
+在寫本篇文章時，SDK 版本為 1.17.3，請自行下載最新版本
+{{< /admonition >}}
+![MWCVI58](https://i.imgur.com/MWCVI58.png)
 
-![flutter zip](https://live.staticflickr.com/65535/49986963693_452fe844ca_b.jpg)
+![ecqbS9n](https://i.imgur.com/ecqbS9n.jpg)
 
 &nbsp;
 
 ## Setp 2. 設定 flutter SDK
-解壓縮並設定 flutter SDK path
+先把 SDK 解壓縮
 
-![unzip](https://live.staticflickr.com/65535/49987771981_6cb4b89dbe_b.jpg)
+![WcEsjL5](https://i.imgur.com/WcEsjL5.jpg)
 
 &nbsp;
 
-打開終端機
+打開終端機，開始設定 flutter SDK path
 
-![open term](https://live.staticflickr.com/65535/49988019927_e50ba325da_w.jpg)
+![A4vzi5g](https://i.imgur.com/A4vzi5g.png)
 
 輸入以下指令
 ```Bash
 code . ~/.bash_profile
 ```
-![input term](https://live.staticflickr.com/65535/49988043787_80a705a1a8.jpg)
+
+![OkcMWya](https://i.imgur.com/OkcMWya.png)
 
 {{< admonition tip >}}
 code 指令，是 VS Code 的 [Launching from the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)，請自行安裝
@@ -49,7 +54,7 @@ code 指令，是 VS Code 的 [Launching from the command line](https://code.vis
 ```Bash
 export PATH="$PATH:/Users/{you name}/Dev/flutter/bin"
 ```
-![set flutter SDK](https://live.staticflickr.com/65535/49988126397_048db32d0d_w.jpg)
+![VgPZitB](https://i.imgur.com/VgPZitB.png)
 
 &nbsp;
 
@@ -64,13 +69,14 @@ source ~/.bash_profile
 ```Bash
 flutter
 ```
-![Building flutter](https://live.staticflickr.com/65535/49987904671_fd9381c13a_n.jpg)
+
+![vzg4yRe](https://i.imgur.com/vzg4yRe.png)
 
 &nbsp;
 
 稍等一下，出現下列畫面，即完成 flutter 的安裝
 
-![flutter install end](https://live.staticflickr.com/65535/49988152822_89be53f459_c.jpg)
+![M81JBjz](https://i.imgur.com/M81JBjz.jpg)
 
 &nbsp;
 
@@ -78,7 +84,7 @@ flutter
 ```Bash
 flutter doctor
 ```
-![flutter doctor](https://live.staticflickr.com/65535/49988005696_1cbf818803_b.jpg)
+![HlNtM92](https://i.imgur.com/HlNtM92.jpg)
 
 &nbsp;
 
@@ -88,8 +94,7 @@ flutter 的開發工具主要有兩個，一個是 [VS Code](https://code.visual
  - Flutter
  - Dart
 
-![flutter vs code ext](https://live.staticflickr.com/65535/49987938026_1c36001635_b.jpg)
-![Dart vs code ext](https://live.staticflickr.com/65535/49987423793_b5a0660d1d_b.jpg)
+![3PgNmid](https://i.imgur.com/3PgNmid.png)
 
 &nbsp;
 
@@ -101,9 +106,11 @@ Flutter 是由 Google 開發的開源行動應用軟體開發套件，因此也�
 
 請自行安裝與設定，Android Studio 安裝過程網路上有許多教學，就不逐步介紹了，完成開啟後，請選擇右下角的「Configure -> Plugins」，安裝 flutter Plugins，安裝完畢後，初始頁面會增加一個建立 flutter 專案的選項
 
-![Configure](https://live.staticflickr.com/65535/49987553658_54334ab782_b.jpg)
-![flutter Plugins](https://live.staticflickr.com/65535/49987553673_030d1c4037_b.jpg)
-![Configure](https://live.staticflickr.com/65535/49988083996_1b924cfc56_b.jpg)
+![rLp9z2M](https://i.imgur.com/rLp9z2M.jpg)
+
+![O0M19zP](https://i.imgur.com/O0M19zP.png)
+
+![hDlWrhe](https://i.imgur.com/hDlWrhe.png)
 
 &nbsp;
 
@@ -115,7 +122,7 @@ Flutter 需要開發 iOS，安裝 Xcode 也是必不可少的，請自行去 App
 安裝完成，務必開啟 Xcode 進行相關「同意」設定
 {{< /admonition >}}
 
-![Xcode](https://live.staticflickr.com/65535/49988045516_598784349f_b.jpg)
+![CZHIcB5](https://i.imgur.com/CZHIcB5.jpg)
 
 &nbsp;
 
@@ -127,7 +134,7 @@ flutter doctor
 ```
 顯示還缺少兩項，就依照說明逐一執行即可
 
-![flutter doctor again](https://live.staticflickr.com/65535/49987607668_5433188a50_b.jpg)
+![NrbOHu5](https://i.imgur.com/NrbOHu5.png)
 
 &nbsp;
 
@@ -146,7 +153,7 @@ pod setup
 
 執行完畢後，再次執行 flutter doctor，若出現下面畫面，表示 flutter 完成安裝
 
-![flutter install over](https://live.staticflickr.com/65535/49988397502_8b64b16e2d_b.jpg)
+![N45exkl](https://i.imgur.com/N45exkl.png)
 
 {{< admonition question >}}
  Connected device 會出現驚嘆號的原因在於，沒有開啟任何模擬器與連接實機(iOS、Android)
