@@ -7,6 +7,13 @@
             <webMaster>kulandev@gmail.com (KuLan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</lastBuildDate>
             <atom:link href="https://kulandev.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>如何在 Google Domains 購買網域 &#43; Github Page 設定</title>
+    <link>https://kulandev.github.io/b200603/</link>
+    <pubDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://kulandev.github.io/b200603/</guid>
+    <description><![CDATA[最近開始寫 Blog，也順便學一下如何購買 Domains 與設定。 購買網域，國內外都有很多管道可以選擇，但這篇是在 Google Domains 上買，為什麼選擇 Google Domains，原因]]></description>
+</item><item>
     <title>如何將 flutter 執行在模擬器與實機上</title>
     <link>https://kulandev.github.io/b200602/</link>
     <pubDate>Wed, 10 Jun 2020 16:03:43 &#43;0800</pubDate>
