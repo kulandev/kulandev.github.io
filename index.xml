@@ -2,7 +2,7 @@
     <channel>
         <title>KuLan Blog</title>
         <link>https://kulandev.github.io/</link>
-        <description>关于 LoveIt 主题</description>
+        <description>KuLan Blog</description>
         <generator>Hugo -- gohugo.io</generator><managingEditor>kulandev@gmail.com (KuLan)</managingEditor>
             <webMaster>kulandev@gmail.com (KuLan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jun 2020 20:03:43 &#43;0800</lastBuildDate>
             <atom:link href="https://kulandev.github.io/index.xml" rel="self" type="application/rss+xml" />
