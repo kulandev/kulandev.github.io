@@ -17,7 +17,7 @@
         - Kendo UI for Vue
 
 精品科技 - 軟體研發工程師 (2015/09 ~ 2020/02)
-* 資訊安全產品 Web 主控台介面設計 (2016/04 - 2020/02)
+* 資訊安全產品 Web 主控台介面設計 (2016/04 ~ 2020/02)
     - [X-FORT W-Console](https://www.fineart-tech.com/index.php/ch/x-fort-profile)
     - 技術線
         - ASP.NET MVC
@@ -29,7 +29,7 @@
         - Kendo UI
         - SQL Server
 
-* Android行動專案 (2015/09 - 2016/04)
+* Android行動專案 (2015/09 ~ 2016/04)
      - [精品漢筆(優雅手寫)](https://www.fineart-tech.com/index.php/ch/10-product/448-2015-07-31-06-48-43)
      - 技術線
         - Android
